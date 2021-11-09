@@ -1,0 +1,22 @@
+{
+  "name": "atividade-avaliativa-1-pt-1",
+  "version": "1.0.0",
+  "description": "- Crie um novo projeto na sua conta pessoal do GitHub - Desenvolva usando Node.js e testes automatizados em Jest - Habilite a opção 'coverage' do Jest e garanta 100% de line coverage (ou o máximo possível) - Configure o GitHub Actions - O GitHub Actions deve estar habilitado antes do desenvolvimento das partes 1 e 2.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jm-marcel/atividade-avaliativa-1-pt-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jm-marcel/atividade-avaliativa-1-pt-1/issues"
+  },
+  "homepage": "https://github.com/jm-marcel/atividade-avaliativa-1-pt-1#readme",
+  "dependencies": {
+    "jest": "^27.3.1"
+  }
+}
