@@ -23,7 +23,7 @@ describe("Filter", () => {
     let invoices = [i1, i2, i3];
 
     // Lista de Faturas com valor maior que 2000 (Falha Proposital)
-    const expectedInvoices = [i1, i3];
+    const expectedInvoices = [i1, i2];
 
     // Filtra faturas com valor maior que 2000
     invoices = removeLessThan2000(invoices);
