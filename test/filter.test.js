@@ -1,6 +1,6 @@
 const invoice = require("../lib/invoice");
 const customer = require("../lib/customer");
-const { lessThan2000 } = require("../lib/functions");
+const { removeLessThan2000 } = require("../lib/functions");
 
 describe("Filter", () => {
   // Se o valor da fatura for menor que 2000
@@ -22,10 +22,13 @@ describe("Filter", () => {
     // Cria um array de faturas
     let invoices = [i1, i2, i3];
 
+    // Lista de Faturas com valor maior que 2000 (Falha Proposital)
+    const expectedInvoices = [i1, i3];
+
     // Filtra faturas com valor maior que 2000
-    invoices = lessThan2000(invoices);
+    invoices = removeLessThan2000(invoices);
 
     // Verifica se o valor da fatura é menor que 2000
-    expect(invoices.length).toBe(1);
+    expect(invoices).toEqual(expectedInvoices);
   });
 });
