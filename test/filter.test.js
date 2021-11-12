@@ -4,6 +4,7 @@ const {
   removeLessThan2000,
   between2000And2500WithDate,
   between2500And3000WithDate,
+  removeGreaterThan4000
 } = require("../lib/functions");
 
 describe("Filter", () => {
@@ -14,7 +15,7 @@ describe("Filter", () => {
   // Cria um novo cliente - 3
   const c3 = new customer("João", new Date(2021, 10, 24), "Maranhão");
   // Cria um novo cliente - 4
-  const c4 = new customer("Cesar", new Date(2021, 11, 5), "Bahia");
+  const c4 = new customer("Cesar", new Date(2021, 11, 5), "Rio Grande do Sul");
 
   // Cria uma nova fatura - 1
   const i1 = new invoice(1, 1999, new Date(2021, 11, 5), c1);
@@ -23,7 +24,7 @@ describe("Filter", () => {
   // Cria uma nova fatura - 3
   const i3 = new invoice(3, 2600, new Date(2021, 10, 15), c3);
   // Cria uma nova fatura - 4
-  const i4 = new invoice(4, 3900, new Date(2021, 10, 20), c4);
+  const i4 = new invoice(4, 4900, new Date(2021, 10, 20), c4);
 
   // Teste - Se o valor da fatura for menor que 2000
   test("Test 1", () => {
@@ -67,6 +68,21 @@ describe("Filter", () => {
     invoices = between2500And3000WithDate(invoices);
 
     // Verifica se o valor da fatura está entre 2500 e 3000 e a data de inclusão for menor ou igual a de 2 meses atrás
+    expect(invoices).toEqual(expectedInvoices);
+  });
+
+  // Teste - Se o valor da fatura for maior que 4000 e o cliente for de algum estado do sul do Brasil
+  test("Test 4", () => {
+    // Cria um array de faturas
+    let invoices = [i1, i2, i3, i4];
+
+    // Lista de Faturas com valor que não seja maior que 4000 e o cliente não for de algum estado do sul do Brasil
+    const expectedInvoices = [i1, i2, i4];
+
+    // Filtra faturas com valor que não seja maior que 4000 e o cliente não for de algum estado do sul do Brasil
+    invoices = removeGreaterThan4000(invoices);
+
+    // Verifica se o valor da fatura é maior que 4000 e o cliente não é de algum estado do sul do Brasil
     expect(invoices).toEqual(expectedInvoices);
   });
 });
