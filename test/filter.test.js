@@ -8,22 +8,22 @@ const {
 
 describe("Filter", () => {
   // Cria um novo cliente - 1
-  const c1 = new customer("Zyon", new Date(2021, 7, 21), "Pernambuco");
+  const c1 = new customer("Zyon", new Date(2021, 10, 21), "Pernambuco");
   // Cria um novo cliente - 2
-  const c2 = new customer("Pedro", new Date(2021, 4, 2), "Ceará");
+  const c2 = new customer("Pedro", new Date(2021, 11, 2), "Ceará");
   // Cria um novo cliente - 3
-  const c3 = new customer("João", new Date(2021, 8, 4), "Maranhão");
+  const c3 = new customer("João", new Date(2021, 8, 24), "Maranhão");
   // Cria um novo cliente - 4
-  const c4 = new customer("Cesar", new Date(2021, 5, 5), "Bahia");
+  const c4 = new customer("Cesar", new Date(2021, 11, 5), "Bahia");
 
   // Cria uma nova fatura - 1
   const i1 = new invoice(1, 1999, new Date(2021, 11, 5), c1);
   // Cria uma nova fatura - 2
   const i2 = new invoice(2, 2200, new Date(2021, 10, 21), c2);
   // Cria uma nova fatura - 3
-  const i3 = new invoice(3, 4100, new Date(2021, 9, 15), c3);
+  const i3 = new invoice(3, 4100, new Date(2021, 10, 15), c3);
   // Cria uma nova fatura - 4
-  const i4 = new invoice(4, 5000, new Date(2021, 10, 25), c4);
+  const i4 = new invoice(4, 2900, new Date(2021, 10, 20), c4);
 
   // Teste - Se o valor da fatura for menor que 2000
   test("Test 1", () => {
@@ -67,6 +67,6 @@ describe("Filter", () => {
     invoices = between2500And3000WithDate(invoices);
 
     // Verifica se o valor da fatura está entre 2500 e 3000 e a data de inclusão for menor ou igual a de 2 meses atrás
-    expect(expectedInvoices).toEqual(expectedInvoices);
+    expect(invoices).toEqual(expectedInvoices);
   });
 });
