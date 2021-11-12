@@ -3,6 +3,7 @@ const customer = require("../lib/customer");
 const {
   removeLessThan2000,
   between2000And2500WithDate,
+  between2500And3000WithDate,
 } = require("../lib/functions");
 
 describe("Filter", () => {
@@ -20,9 +21,9 @@ describe("Filter", () => {
   // Cria uma nova fatura - 2
   const i2 = new invoice(2, 2200, new Date(2021, 10, 21), c2);
   // Cria uma nova fatura - 3
-  const i3 = new invoice(3, 4100, new Date(2021, 9, 5), c3);
+  const i3 = new invoice(3, 4100, new Date(2021, 9, 15), c3);
   // Cria uma nova fatura - 4
-  const i4 = new invoice(4, 3000, new Date(2021, 10, 25), c4);
+  const i4 = new invoice(4, 5000, new Date(2021, 10, 25), c4);
 
   // Teste - Se o valor da fatura for menor que 2000
   test("Test 1", () => {
@@ -51,6 +52,21 @@ describe("Filter", () => {
     invoices = between2000And2500WithDate(invoices);
 
     // Verifica se o valor da fatura está entre 2000 e 2500 e a data for menor ou igual a de um mês atrás
+    expect(invoices).toEqual(expectedInvoices);
+  });
+
+  // Teste - Se o valor da fatura estiver entre 2500 e 3000 e a data de inclusão do cliente for menor ou igual a 2 meses atrás
+  test("Test 3", () => {
+    // Cria um array de faturas
+    let invoices = [i1, i2, i3, i4];
+
+    // Lista de Faturas com valor que não esteja entre 2500 e 3000 e a data de inclusão não for menor ou igual a de 2 meses atrás
+    const expectedInvoices = [i1, i2, i4];
+
+    // Filtra faturas com valor que não esteja entre 2500 e 3000 e a data de inclusão não for menor ou igual a de 2 meses atrás
+    invoices = between2500And3000WithDate(invoices);
+
+    // Verifica se o valor da fatura está entre 2500 e 3000 e a data de inclusão for menor ou igual a de 2 meses atrás
     expect(invoices).toEqual(expectedInvoices);
   });
 });
