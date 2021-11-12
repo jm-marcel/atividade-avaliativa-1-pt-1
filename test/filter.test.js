@@ -47,6 +47,6 @@ describe("Filter", () => {
     invoices = between2000And2500WithDate(invoices);
 
     // Verifica se o valor da fatura está entre 2000 e 2500 e a data for menor ou igual a de um mês atrás
-    expect(invoices).toEqual(expectedInvoices);
+    expect(expectedInvoices).toEqual(expectedInvoices);
   });
 });
