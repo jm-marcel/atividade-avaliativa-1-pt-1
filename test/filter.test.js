@@ -77,12 +77,12 @@ describe("Filter", () => {
     let invoices = [i1, i2, i3, i4];
 
     // Lista de Faturas com valor que não seja maior que 4000 e o cliente não for de algum estado do sul do Brasil
-    const expectedInvoices = [i1, i2, i4];
+    const expectedInvoices = [i1, i2, i3];
 
     // Filtra faturas com valor que não seja maior que 4000 e o cliente não for de algum estado do sul do Brasil
     invoices = removeGreaterThan4000(invoices);
 
     // Verifica se o valor da fatura é maior que 4000 e o cliente não é de algum estado do sul do Brasil
-    expect(expectedInvoices).toEqual(expectedInvoices);
+    expect(invoices).toEqual(expectedInvoices);
   });
 });
