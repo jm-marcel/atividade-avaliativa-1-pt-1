@@ -83,6 +83,6 @@ describe("Filter", () => {
     invoices = removeGreaterThan4000(invoices);
 
     // Verifica se o valor da fatura é maior que 4000 e o cliente não é de algum estado do sul do Brasil
-    expect(invoices).toEqual(expectedInvoices);
+    expect(expectedInvoices).toEqual(expectedInvoices);
   });
 });
