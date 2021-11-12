@@ -29,6 +29,6 @@ describe("Filter", () => {
     invoices = removeLessThan2000(invoices);
 
     // Verifica se o valor da fatura é menor que 2000
-    expect(expectedInvoices).toEqual(expectedInvoices);
+    expect(invoices).toEqual(expectedInvoices);
   });
 });
